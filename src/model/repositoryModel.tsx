@@ -8,7 +8,7 @@ type Props = {
 	html_url: string;
 };
 
-function RepositoriesModal({ user, onClose, html_url }: Props) {
+function RepositoriesModal({ user, onClose }: Props) {
 	const [repositories, setRepositories] = useState<RepositoriesDataType[]>();
 
 	useEffect(() => {
