@@ -1,16 +1,6 @@
 import { useState } from "react";
-import More from "./More";
-
-type UserDataType = {
-  avatar_url: string;
-  name: string;
-  bio: string;
-  repos_url: string;
-};
-interface UserProps {
-  user: UserDataType;
-  setUser: React.Dispatch<React.SetStateAction<UserDataType | undefined>>;
-}
+import More from "./service/More";
+import { UserProps } from "./interface/userinterface";
 
 function User({user,setUser}: UserProps) {
   const [moreData, setMoreData] = useState(false);

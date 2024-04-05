@@ -1,7 +1,42 @@
+h1
+{
+  color: rgba(239, 98, 11, 0.727);
+  margin-top :250px;
+  
+
+}
+input[type=text] {
+background-color:rgba(239, 98, 11, 0.727) ;
+color:white;
+border:none;
+padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button {
+  background-color: rgba(239, 98, 11, 0.727) ;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: small;
+
+}
+input::placeholder {
+  color:white;
+  font-size: small;
+}
 .App {
+  height: 100%;
     text-align: center;
     margin-top: 50px;
+    background-color: bisque;
   }
+body
+{
+  background-color: bisque;
+}
   
   .avatar {
     width: 100px;
@@ -38,6 +73,7 @@
   }
   
   .repositories h3 {
+    color: rgba(239, 98, 11, 0.727);
     margin-top: 0;
     margin-bottom: 5px;
   }
@@ -59,9 +95,11 @@
   .repositories-modal h3 {
     margin-top: 0;
     margin-bottom: 5px;
+    color: rgba(239, 98, 11, 0.727);
   }
   
   .repositories-modal ul {
     list-style-type: none;
     padding: 0;
   }
+

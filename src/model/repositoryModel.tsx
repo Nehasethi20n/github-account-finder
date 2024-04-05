@@ -28,10 +28,7 @@ function RepositoriesModal({ user, onClose }: Props) {
 				{repositories?.map((repository) => (
 					<li key={repository.id}>
 						<a
-							href={repository.html_url}
-							target='_blank'
-							rel='noopener noreferrer'
-						>
+							href={repository.html_url} target='_blank'rel='noopener noreferrer'>
 							{repository.name}
 						</a>
 					</li>

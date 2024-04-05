@@ -8,21 +8,21 @@ type Props = {
 };
 
 function Repositories({ user }: Props) {
-	const [showModal, setShowModal] = useState(false);
+	const [showrepo, setShowRepo] = useState(false);
 
 	const handleOpenModal = () => {
-		setShowModal(true);
+		setShowRepo(true);
 	};
 
 	const handleCloseModal = () => {
-		setShowModal(false);
+		setShowRepo(false);
 	};
 
 	return (
 		<div className='repositories'>
 			<h3>Repositories</h3>
 			<button onClick={handleOpenModal}>View Repositories</button>
-			{showModal && (
+			{showrepo && (
 				<RepositoriesModal user={user} onClose={handleCloseModal} html_url={''} />
 			)}
 		</div>

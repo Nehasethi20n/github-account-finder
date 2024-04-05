@@ -1,7 +1,5 @@
-interface UserProps {
-    user: {
-      avatar_url: string;
-      name: string;
-      bio: string;
-    };
-  }
+import { UserDataType } from "../types";
+export interface UserProps {
+      user: UserDataType;
+      setUser: React.Dispatch<React.SetStateAction<UserDataType | undefined>>;
+    }

@@ -2,13 +2,7 @@ import { useState } from 'react';
 import './style/app.css';
 import User from './user';
 import { fetchUser } from './service/fetchUser';
-
-type UserDataType = {
-	avatar_url: string;
-	name: string;
-	bio: string;
-	repos_url: string;
-};
+import { UserDataType } from './types';
 
 function App() {
 	const [input, setInput] = useState<string>('');
@@ -34,7 +28,6 @@ function App() {
 					type='text'
 					value={input}
 					placeholder='Enter a GitHub username'
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					onChange={handleInputChange}
 					onKeyDown={(event: any) => {
 						if (event.key === 'Enter') {
@@ -42,7 +35,7 @@ function App() {
 						}
 					}}
 				/>
-				<button onClick={handleSearch}>Search</button>
+				<button className="search-button"onClick={handleSearch}>Search</button>
 				<button onClick={()=>setInput('')}>Clear</button>
 			</>
 			{loading && <p>Loading...</p>}

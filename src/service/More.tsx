@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { RepositoriesDataType } from './types';
+import { RepositoriesDataType } from '../types';
 
 interface MoreProps {
 	repo_url: string;
 }
-export default function More({ repo_url }: MoreProps) {
+export default function More({ repo_url }:MoreProps) {
 	const [repos, setRepos] = useState([]);
 
 	useEffect(() => {
