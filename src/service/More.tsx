@@ -5,22 +5,35 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaGithub } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-// import { UserProps } from '../interface/userinterface';
-// import User from '../user';
+import { useNavigate } from 'react-router-dom';
 
 export default function More() {
 	const [repos, setRepos] = useState<RepositoriesDataType[]>([]);
-	// const[profile,setProfile]=useState<UserDataType[]>([]);
+	const[user,setUser]=useState<UserDataType>({} as UserDataType);
+	const [loading, setLoading] = useState<boolean>(false);
+	const navigate = useNavigate();
+
+	const{user_url}=useParams<{user_url:string}>();
+
 	const { repo_url } = useParams<{ repo_url: string }>();
 	useEffect(() => {
+
+        
+
+
 		const fetchRepo = async () => {
 			if (!repo_url) return;
 			const res = await fetch(repo_url);
 			const data = await res.json();
 			setRepos(data);
 		};
+		
 		fetchRepo();
 	}, [repo_url]);
+
+	const handleBack = () => {
+		navigate('/');
+	  };
 
 	return (
 		<div>
@@ -35,11 +48,8 @@ export default function More() {
 					</Container>
 				</Navbar>
 			</Link>
-            {/* <div>
-				<strong>Name: </strong>{profile.map((profiles:UserDataType)=>(
-					<a href={profiles.bio}>{profiles.name}</a>
-				))}
-				</div> */}
+
+     <button onClick={handleBack}>Back</button>
 			<ul>
 				<h3>Repositories</h3>
 				{repos.map((repo: RepositoriesDataType) => (
