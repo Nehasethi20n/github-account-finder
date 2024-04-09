@@ -4,9 +4,17 @@ import { UserProps } from "./interface/userinterface";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { BiHandicap } from "react-icons/bi";
 
 function User({ user, setUser }: UserProps) {
   const [moreData, setMoreData] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMore = () => {
+    navigate(`/more/${user.login}`);
+  };
+
 
   return (
     <>
@@ -21,9 +29,9 @@ function User({ user, setUser }: UserProps) {
             {user.bio}
           </Card.Text>
           <Button variant="primary" onClick={() => setUser(undefined)}>Reset</Button>
-          <Link to={`/more/${encodeURIComponent(user.repos_url)}`}>
-            <Button variant="primary" onClick={() => setMoreData(true)}>More</Button>
-          </Link>
+          {/* <Link to={`/more/${encodeURIComponent(user.repos_url)}`}> */}
+            <Button variant="primary" onClick={handleMore}>More</Button>
+          {/* </Link> */}
         </Card.Body>
       </Card>
       {moreData && <More/>}

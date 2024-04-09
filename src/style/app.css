@@ -6,19 +6,27 @@ h1
 .searchbox-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  height: 100vh; /* Set the height of the container */
+  align-items: center;
+  justify-content: center; 
+  height: 100vh;
   background:lightcyan
 }
+.view-profile{
+  color:rgba(239, 98, 11, 0.727) ;
+  text-decoration: none;
+  font-size: medium;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 200px;
 
+}
 .searchbox {
   width: 500px;
-  background: red; /* Set the width of the search box */
+  background: red;
 }
 
 .button-group {
-  margin-top: 10px; /* Add some space between the search box and buttons */
+  margin-top: 10px;
 }
 
 input[type=text] {

@@ -13,23 +13,47 @@ export default function More() {
 	const [loading, setLoading] = useState<boolean>(false);
 	const navigate = useNavigate();
 
-	const{user_url}=useParams<{user_url:string}>();
+	// const{user_url}=useParams<{user_url:string}>();
 
-	const { repo_url } = useParams<{ repo_url: string }>();
+	const {id} = useParams<{ id: string }>();
 	useEffect(() => {
 
-        
+        const fetchUser = async () => {
+			setLoading(true);
+			try {
+			  const userResponse = await fetch(`https://api.github.com/users/${id}`);
+			  if (userResponse.ok) {
+				const userData = await userResponse.json();
+				setUser(userData);
+				setLoading(false);
+			  } else {
+				throw new Error('Failed to fetch user data');
+			  }
+			} catch (error) {
+			  console.error('Error fetching user data:', error);
+			}
+		  };
 
+		  const fetchRepos = async () => {
+			try {
+			  const response = await fetch(`https://api.github.com/users/${id}/repos`);
+			  if (response.ok) {
+				const data = await response.json();
+				setRepos(data);
+			  } else {
+				throw new Error('Failed to fetch repositories');
+			  }
+			} catch (error) {
+			  console.error('Error fetching repositories:', error);
+			} finally {
+			  setLoading(false);
+			}
+		  };
 
-		const fetchRepo = async () => {
-			if (!repo_url) return;
-			const res = await fetch(repo_url);
-			const data = await res.json();
-			setRepos(data);
-		};
 		
-		fetchRepo();
-	}, [repo_url]);
+        fetchUser();
+		fetchRepos();
+	}, [id]);
 
 	const handleBack = () => {
 		navigate('/');
@@ -50,6 +74,26 @@ export default function More() {
 			</Link>
 
      <button onClick={handleBack}>Back</button>
+			<h3>User Information:</h3>
+	 
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+			<div>
+			<b><a className="view-profile" href={user.html_url}>View User Profile</a></b>
+          <img style={{height:150}}src={user.avatar_url} alt={user.login} />
+		  <p><strong>Username:</strong> {user.login}</p>
+		  
+		  </div>
+          <p><strong>Name:</strong> {user.name}</p>
+          <p><strong>Id:</strong> {user.id}</p>
+          <p><strong>Location:</strong> {user.location}</p>
+          <p><strong>Public Repositories:</strong> {user.public_repos}</p>
+		 
+        </div>
+      )}
+
 			<ul>
 				<h3>Repositories</h3>
 				{repos.map((repo: RepositoriesDataType) => (
