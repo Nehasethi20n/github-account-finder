@@ -5,7 +5,6 @@ export type UserDataType = {
     bio: string;
     html_url:string;
     repos_url:string;
-    followers_url:string;
   };
   
   export type RepositoriesDataType = {

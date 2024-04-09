@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg='dark' data-bs-theme="dark">
+            <Navbar bg='dark' data-bs-theme="dark" >
                 <Container>
                     <Navbar.Brand href="#home">
                         <FaGithub />
