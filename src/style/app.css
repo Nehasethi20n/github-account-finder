@@ -3,13 +3,28 @@ h1
   color: rgba(239, 98, 11, 0.727);
   margin-top :250px;
 }
+h2{
+  font-size:small;
+  text-align: center;
+}
+.btn{
+  background-color:rgba(239, 98, 11, 0.727) ;;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: small;
+  height: 30px;
+  margin-top: 50px;
+}
 .searchbox-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; 
   height: 100vh;
-  background:lightcyan
+  background:lightcyan;
 }
 .view-profile{
   color:rgba(239, 98, 11, 0.727) ;
@@ -19,10 +34,6 @@ h1
   justify-content: flex-end;
   margin-right: 200px;
 
-}
-.searchbox {
-  width: 500px;
-  background: red;
 }
 
 .button-group {
@@ -62,14 +73,15 @@ body
 }
   
   .avatar {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+    margin-top: 40px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom:2px;
   }
   
   .user {
-    display: inline-block;
+    display:flex;
     margin: 20px;
     border: 1px solid #ccc;
     padding: 20px;
@@ -85,6 +97,13 @@ body
     margin-top: 0;
     margin-bottom: 5px;
   }
+  .btn1
+  {
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color:rgba(239, 98, 11, 0.727) ;;
+  }
+
   
   .repositories {
     display: inline-block;
@@ -126,3 +145,17 @@ body
     padding: 0;
   }
 
+.user-profile
+{
+  border:1px solid black;
+  display: flex;
+  height:100px;
+  padding:2px;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.user-profile:hover {
+  background-color:lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}

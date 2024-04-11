@@ -12,9 +12,6 @@ export default function More() {
 	const[user,setUser]=useState<UserDataType>({} as UserDataType);
 	const [loading, setLoading] = useState<boolean>(false);
 	const navigate = useNavigate();
-
-	// const{user_url}=useParams<{user_url:string}>();
-
 	const {id} = useParams<{ id: string }>();
 	useEffect(() => {
 

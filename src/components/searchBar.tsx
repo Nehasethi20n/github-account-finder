@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../style/app.css';
 import User from '../user';
 import { fetchUser } from '../service/fetchUser';
@@ -8,17 +8,22 @@ import Button from 'react-bootstrap/Button';
 
 const SearchBar = () => {
     const [input, setInput] = useState<string>('');
-    const [user, setUser] = useState<UserDataType>();
+    const [users, setUsers] = useState<UserDataType[]>();
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleSearch = async () => {
         if (!input) return;
         setLoading(true);
         const userData = await fetchUser(input);
-        setUser(userData);
+        setUsers(userData.items);
+        console.log(userData);
         setLoading(false);
     };
-
+useEffect(()=>{
+if(input.length<2)
+    return;
+handleSearch();
+},[input])
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInput(event.target.value);
     };
@@ -38,13 +43,13 @@ const SearchBar = () => {
                 style={{ width: 500 }}
             />
             <div style={{margin:10}}>
-                <Button className="search-button" onClick={handleSearch} style={{marginRight:10}}>Search</Button>
-                <Button onClick={() => setInput('')}>Clear</Button>
+                <Button className="btn1" onClick={handleSearch} style={{marginRight:10}}>Search</Button>
+                <Button className='btn1'onClick={() => setInput('')}>Clear</Button>
             </div>
             
             <div>
                 {loading && <p>Loading...</p>}
-                {user && <User user={user} setUser={setUser} />}
+                {users && <User users={users} setUsers={setUsers} />}
             </div>
         </div>
     )
