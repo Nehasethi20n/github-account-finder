@@ -4,7 +4,7 @@ import { UserProps } from "./interface/userinterface";
 import { useNavigate } from "react-router-dom";
 
 function User({ users, setUsers }: UserProps) {
-  const [moreData, setMoreData] = useState(false);
+  const [moreData] = useState(false);
   const navigate = useNavigate();
 
   const handleMore = (str: string) => {
